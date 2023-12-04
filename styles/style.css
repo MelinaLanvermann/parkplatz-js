@@ -1,15 +1,16 @@
-html{
+html {
     font-family: Arial, sans-serif;
     font-size: larger;
 }
 
-.parking-list{
+.parking-list {
     display: flex;
     flex-flow: column wrap;
     flex-basis: auto;
     align-content: center;
 }
-.parking-list a{
+
+.parking-list a {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -21,18 +22,22 @@ html{
     padding: 5px;
     margin-bottom: 2px;
 }
-.parking-list span{
+
+.parking-list span {
     flex-basis: 25%
 }
-.free{
+
+.free {
     background-color: #97cf66ff;
     border-color: #214600ff;
 }
-.booked{
+
+.booked {
     background-color: #f4aa66ff;
     border-color: #5e2d00ff;
 }
-.unknown{
+
+.unknown {
     background-color: #e36666ff;
     border-color: #270000ff;
 }
