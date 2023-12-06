@@ -21,9 +21,9 @@ export function sortNew(selected) {
         case 'byType':
             parkingMocks.sort((a, b) => {
                 if (a.type > b.type) {
-                    return 1;
-                } else if (a.type < b.type) {
                     return -1;
+                } else if (a.type < b.type) {
+                    return 1;
                 } else {
                     return 0;
                 }
