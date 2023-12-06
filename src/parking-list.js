@@ -1,12 +1,9 @@
 import {parkingMocks} from "./mock_data.js";
-// import {Booking} from "./booking.js";
-
-// document.body.onload = createParkingList;
-const currentDiv = document.getElementById("parking");
-const newDiv = document.createElement("div");
-newDiv.setAttribute("class", "parking-list")
 
 export function createParkingList() {
+    const currentDiv = document.getElementById("parking");
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "parking-list")
 
     for (const spot of parkingMocks) {
         const newA = document.createElement("a");
@@ -55,4 +52,5 @@ export function createParkingList() {
         newDiv.appendChild(newA);
     }
     document.body.replaceChild(newDiv, currentDiv);
+    newDiv.setAttribute("id", "parking")
 }
