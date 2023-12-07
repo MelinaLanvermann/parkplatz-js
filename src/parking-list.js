@@ -1,6 +1,7 @@
 import {parkingMocks} from "./mock_data.js";
 
 export function createParkingList() {
+    const bodyDiv = document.querySelector(".bodyDiv")
     const currentDiv = document.getElementById("parking");
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "parking-list")
@@ -34,6 +35,7 @@ export function createParkingList() {
         if (spot.type === "wide") {
             const newTypeText = document.createTextNode(`Dies ist ein breiterer Parkplatz`);
             newTypeDiv.appendChild(newTypeText);
+            newTypeDiv.setAttribute("class", "wide")
         } else {
             const newTypeText = document.createTextNode(`Dies ist ein normaler Parkplatz`);
             newTypeDiv.appendChild(newTypeText);
@@ -51,6 +53,6 @@ export function createParkingList() {
         newA.setAttribute("id", `${spot.id}`);
         newDiv.appendChild(newA);
     }
-    document.body.replaceChild(newDiv, currentDiv);
+    bodyDiv.replaceChild(newDiv, currentDiv);
     newDiv.setAttribute("id", "parking")
 }

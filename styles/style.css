@@ -9,6 +9,8 @@ input, select {
     min-width: 150px;
     max-width: 250px;
 
+    margin: 2px;
+
     border-radius: 5px;
     border-color: #002c50ff;
     background-color: #cce2f4ff;
@@ -18,11 +20,33 @@ input, select {
     font-size: large;
 }
 
+button{
+    min-height: 35px;
+
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+}
+
 #sortForm input {
     min-height: 15px;
     max-height: 15px;
     min-width: 15px;
     max-width: 15px;
+}
+
+.bodyDiv {
+    display: flex;
+    flex-flow: row wrap;
+    flex: auto;
+    justify-content: space-evenly;
+}
+
+#bookingForm {
+    display: flex;
+    flex-flow: column wrap;
+    flex: auto;
+    justify-content: space-around;
 }
 
 .parking-list {
@@ -32,27 +56,28 @@ input, select {
     align-content: center;
 
     padding: 5px;
+
+    & a {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        border-style: solid;
+        border-width: thin;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 2px;
+
+    }
+
+    & span {
+        flex-basis: 25%
+    }
 }
 
-.parking-list a {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-
-    border-style: solid;
-    border-width: thin;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 2px;
-}
-
-.wide{
+.wide {
     font-weight: bold;
-}
-
-.parking-list span {
-    flex-basis: 25%
 }
 
 .free {

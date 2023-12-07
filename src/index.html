@@ -14,14 +14,19 @@
     <label for="byType"><input id="byType" name="sorting" type="radio">by Type</label>
     <button type="submit" id="formButton">Sort</button>
 </form>
-<!--<div class="bookingForm">-->
-<!--    <form id="bookingForm">-->
-<!--        <label for="bookingDate">Wunschdatum : </label>-->
-<!--        <input id="bookingDate" type="date">-->
-<!--        <label for="bookingSelect">Wunschparkplatz : </label>-->
-<!--    </form>-->
-<!--</div>-->
-<div id="parking">Not replaced, app.js not working correctly
+<div class="bodyDiv">
+    <div class="bookingForm">
+        <form id="bookingForm" action="" target="_self" method="post">
+            <label for="bookingDate">Wunschdatum : </label>
+            <input id="bookingDate" type="date">
+            <button id="checkDate">Datum prüfen</button>
+            <label for="bookingSelect">Wunschparkplatz : </label>
+            <select class="currentSelect"></select>
+            <button type="submit" id="bookingSubmit">Jetzt buchen</button>
+        </form>
+    </div>
+    <div id="parking">Bitte ein Datum auswählen!
+    </div>
 </div>
 <script src="./app.js" type="module"></script>
 </body>
