@@ -7,7 +7,7 @@ import {getBooking} from "./mock-data.js";
 // const sortSelected = document.getElementById("sortForm");
 const dateBtn = document.getElementById("checkDate");
 const bookForm = document.getElementById("bookingForm");
-const bookingList = getBooking()
+const bookingList = getBooking();
 
 // sortSelected.addEventListener("submit", (e) => {
 //     e.preventDefault();
