@@ -1,6 +1,7 @@
-import {parkingMocks} from "./mock_data.js";
+import {parkingMocks} from "./mock-data.js";
+import {getStatus} from "./parking-status.js";
 
-export function createParkingList() {
+export function createParkingList(date, bookingList) {
     const bodyDiv = document.querySelector(".bodyDiv")
     const currentDiv = document.getElementById("parking");
     const newDiv = document.createElement("div");
@@ -17,11 +18,14 @@ export function createParkingList() {
         newIdDiv.appendChild(newIdText);
         newA.appendChild(newIdDiv);
 
-        if (spot.status === "free") {
+        const parkId = spot.id;
+        const spotStatus = getStatus(date, parkId, bookingList);
+
+        if (spotStatus === "free") {
             const newStatusText = document.createTextNode(`Status : frei`);
             newStatusDiv.appendChild(newStatusText);
             newA.setAttribute("class", "free");
-        } else if (spot.status === "booked") {
+        } else if (spotStatus === "booked") {
             const newStatusText = document.createTextNode(`Status : gebucht`);
             newStatusDiv.appendChild(newStatusText);
             newA.setAttribute("class", "booked");

@@ -1,15 +1,15 @@
-import {parkingMocks} from "./mock_data.js";
-import {bookingMocks} from "./mock_data.js";
+import {parkingMocks} from "./mock-data.js";
+// import {bookingMocks} from "./mock-data.js";
 import {createParkingList} from "./parking-list.js";
 import {createBookingForm} from "./booking-form.js";
 
 
-export function Dateat(dateInput) {
+export function atDate(dateInput) {
     const bookingList = bookingMocks;
 
     for (const booking of bookingList) {
         if (booking.date === dateInput) {
-            parkingMocks[+booking.parkId - 1].status = "booked";
+            // parkingMocks[+booking.parkId - 1].status = "booked";
             createParkingList();
             createBookingForm();
             break;

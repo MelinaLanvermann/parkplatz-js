@@ -20,7 +20,7 @@ input, select {
     font-size: large;
 }
 
-button{
+button {
     min-height: 35px;
 
     border-radius: 5px;
@@ -74,23 +74,25 @@ button{
     & span {
         flex-basis: 25%
     }
+
+    .wide {
+        font-weight: bold;
+    }
+
+    .free {
+        background-color: #97cf66ff;
+        border-color: #214600ff;
+    }
+
+    .booked {
+        background-color: #f4aa66ff;
+        border-color: #5e2d00ff;
+    }
+
+    .unknown {
+        background-color: #e36666ff;
+        border-color: #270000ff;
+    }
 }
 
-.wide {
-    font-weight: bold;
-}
 
-.free {
-    background-color: #97cf66ff;
-    border-color: #214600ff;
-}
-
-.booked {
-    background-color: #f4aa66ff;
-    border-color: #5e2d00ff;
-}
-
-.unknown {
-    background-color: #e36666ff;
-    border-color: #270000ff;
-}
