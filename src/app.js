@@ -1,10 +1,10 @@
 import {createParkingList} from "./parking-list.js";
 import {createBookingForm} from "./booking-form.js";
-import {sortNew} from "./sort-by.js";
+// import {sortNew} from "./sort-by.js";
 import {addBooking} from "./new-booking.js";
 import {getBooking} from "./mock-data.js";
 
-const sortSelected = document.getElementById("sortForm");
+// const sortSelected = document.getElementById("sortForm");
 const dateBtn = document.getElementById("checkDate");
 const bookForm = document.getElementById("bookingForm");
 const bookingList = getBooking()

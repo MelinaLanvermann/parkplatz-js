@@ -1,9 +1,9 @@
-import {parkingMocks} from "./mock-data.js";
+// import {parkingMocks} from "./mock-data.js";
 // import {bookingMocks} from "./mock-data.js";
 
-export function setStatus(date, parkId) {
-
-}
+// export function setStatus(date, parkId) {
+//
+// }
 
 export function getStatus(date, parkId, bookingList) {
 
