@@ -28,14 +28,14 @@ button {
     border-width: thin;
 }
 
-#sortForm input {
+#sort-form input {
     min-height: 15px;
     max-height: 15px;
     min-width: 15px;
     max-width: 15px;
 }
 
-.bodyDiv {
+.body-div {
     display: flex;
     flex-flow: row wrap;
     flex: auto;

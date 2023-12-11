@@ -1,12 +1,12 @@
-import {Parkingspot} from "./parkingspot.js";
+import {ParkingSpot} from "./parking-spot.js";
 import {Booking} from "./booking.js";
 
 const parkingMocks = [
-    new Parkingspot(1, "wide", "close"),
-    new Parkingspot(2, "wide", "close"),
-    new Parkingspot(3, "regular", "far"),
-    new Parkingspot(4, "regular", "far"),
-    new Parkingspot(5, "wide", "far")
+    new ParkingSpot(1, "wide", "close"),
+    new ParkingSpot(2, "wide", "close"),
+    new ParkingSpot(3, "regular", "far"),
+    new ParkingSpot(4, "regular", "far"),
+    new ParkingSpot(5, "wide", "far")
 ];
 
 export function getParking(){

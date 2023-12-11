@@ -1,4 +1,4 @@
-export class Parkingspot {
+export class ParkingSpot {
 
     id;
     type;

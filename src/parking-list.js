@@ -1,7 +1,7 @@
 import {getStatus} from "./parking-status.js";
 
 export function createParkingList(date, bookingList, parkingArray) {
-    const bodyDiv = document.querySelector(".bodyDiv")
+    const bodyDiv = document.querySelector(".body-div")
     const currentDiv = document.getElementById("parking");
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "parking-list")
