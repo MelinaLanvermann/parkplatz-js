@@ -2,12 +2,12 @@ import {getStatus} from "./parking-status.js";
 
 export function createBookingForm(date, bookingList, parkingArray) {
 
-    const bForm = document.getElementById("bookingForm");
-    const oldSelect = document.querySelector(".currentSelect");
+    const bForm = document.getElementById("booking-form");
+    const oldSelect = document.querySelector(".current-select");
     const newSelect = document.createElement("select");
 
-    newSelect.setAttribute("id", `bookingSelect`);
-    newSelect.setAttribute("name", `bookingSelect`);
+    newSelect.setAttribute("id", `booking-select`);
+    newSelect.setAttribute("name", `booking-select`);
 
     for (const spot of parkingArray) {
         const newItem = document.createElement("option");
@@ -20,6 +20,6 @@ export function createBookingForm(date, bookingList, parkingArray) {
             newSelect.appendChild(newItem);
         }
     }
-    newSelect.setAttribute("class", "currentSelect");
+    newSelect.setAttribute("class", "current-select");
     bForm.replaceChild(newSelect, oldSelect);
 }

@@ -42,7 +42,7 @@ button {
     justify-content: space-evenly;
 }
 
-#bookingForm {
+#booking-form {
     display: flex;
     flex-flow: column wrap;
     flex: auto;

@@ -4,16 +4,15 @@ import {sortNew} from "./sort-by.js";
 import {addBooking} from "./new-booking.js";
 import {getBooking, getParking} from "./mock-data.js";
 
-const sortSelected = document.getElementById("sortForm");
-const dateBtn = document.getElementById("checkDate");
-const bookForm = document.getElementById("bookingForm");
+const sortSelected = document.getElementById("sort-form");
+const dateBtn = document.getElementById("check-date");
+const bookForm = document.getElementById("booking-form");
+const dateInput = document.getElementById("booking-date").value;
 let bookingList = getBooking();
 let parkingArray = getParking();
 
 dateBtn.addEventListener("click", (e) => {
     e.preventDefault();
-
-    const dateInput = document.getElementById("bookingDate").value;
 
     if (dateInput) {
         createParkingList(dateInput, bookingList, parkingArray);
@@ -26,8 +25,8 @@ dateBtn.addEventListener("click", (e) => {
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const date = document.getElementById("bookingDate").value;
-    const spot = document.getElementById("bookingSelect").value;
+    const date = document.getElementById("booking-date").value;
+    const spot = document.getElementById("booking-select").value;
 
     bookingList = addBooking(date, spot, bookingList);
 
@@ -39,7 +38,6 @@ sortSelected.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const selected = sortSelected.querySelector(`input[name="sorting"]:checked`).getAttribute("id");
-    const dateInput = document.getElementById("bookingDate").value;
 
     parkingArray = sortNew(selected, parkingArray, dateInput, bookingList);
 

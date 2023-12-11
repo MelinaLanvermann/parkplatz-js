@@ -7,7 +7,7 @@
     <link href="../styles/style.css" rel="stylesheet">
 </head>
 <body>
-<form target="_self" action="" method="post" name="sortForm" id="sortForm">
+<form target="_self" action="" method="post" name="sort-form" id="sort-form">
     <span>Sort by : </span>
     <label for="byId"><input id="byId" name="sorting" type="radio">by Id</label>
     <label for="byStatus"><input id="byStatus" name="sorting" type="radio">by Status</label>
@@ -15,19 +15,20 @@
     <button type="submit" id="formButton">Sort</button>
 </form>
 <div class="bodyDiv">
-    <div class="bookingForm">
-        <form id="bookingForm" action="" target="_self" method="post">
-            <label for="bookingDate">Wunschdatum : </label>
-            <input id="bookingDate" type="date">
-            <button id="checkDate">Datum prüfen</button>
-            <label for="bookingSelect">Wunschparkplatz : </label>
-            <select id =bookingSelect" class="currentSelect"></select>
+    <div class="booking-form">
+        <form id="booking-form" action="" target="_self" method="post">
+            <label for="booking-date">Wunschdatum : </label>
+            <input id="booking-date" type="date">
+            <button id="check-date">Datum prüfen</button>
+            <label for="booking-select">Wunschparkplatz : </label>
+            <select id ="booking-select" class="current-select"></select>
             <button type="submit" id="bookingSubmit">Jetzt buchen</button>
         </form>
     </div>
     <div id="parking">Bitte ein Datum auswählen!
     </div>
 </div>
+<div class="bookingList"></div>
 <script src="./app.js" type="module"></script>
 </body>
 </html>
