@@ -4,11 +4,11 @@ import {getStatus} from "./parking-status.js";
 export function sortNew(selected, parkingArray, date, bookingList) {
 
     switch (selected) {
-        case 'byId':
+        case 'by-id':
             parkingArray.sort((a, b) => a.id - b.id);
             break;
 
-        case 'byStatus':
+        case 'by-status':
             parkingArray.sort((a, b) => {
                 if (getStatus(date, a.id, bookingList) > getStatus(date, b.id, bookingList)) {
                     return -1;
@@ -20,7 +20,7 @@ export function sortNew(selected, parkingArray, date, bookingList) {
             })
             break;
 
-        case 'byType':
+        case 'by-type':
             parkingArray.sort((a, b) => {
                 if (a.type > b.type) {
                     return -1;
