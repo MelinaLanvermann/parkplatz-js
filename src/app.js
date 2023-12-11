@@ -10,6 +10,7 @@ const dateBtn = document.getElementById("check-date");
 const bookForm = document.getElementById("booking-form");
 let bookingList = getBooking();
 let parkingArray = getParking();
+createBookingList(bookingList);
 
 dateBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -17,8 +18,7 @@ dateBtn.addEventListener("click", (e) => {
     const dateInput = document.getElementById("booking-date").value;
 
     if (dateInput) {
-        createParkingList(dateInput, bookingList, parkingArray);
-        createBookingForm(dateInput, bookingList, parkingArray);
+        updateDocument(dateInput, bookingList, parkingArray);
     } else {
         alert("Bitte ein Datum auswählen !")
     }
@@ -32,11 +32,8 @@ bookForm.addEventListener("submit", (e) => {
 
     bookingList = addBooking(date, spot, bookingList);
 
-    createParkingList(date, bookingList, parkingArray);
-    createBookingForm(date, bookingList, parkingArray);
-    createBookingList();
+    updateDocument(date, bookingList, parkingArray);
 });
-
 
 
 sortSelected.addEventListener("submit", (e) => {
@@ -47,6 +44,11 @@ sortSelected.addEventListener("submit", (e) => {
 
     parkingArray = sortNew(selected, parkingArray, dateInput, bookingList);
 
-    createParkingList(dateInput, bookingList, parkingArray);
-    createBookingForm(dateInput, bookingList, parkingArray);
+    updateDocument(dateInput, bookingList, parkingArray);
 });
+
+function updateDocument(date, bookingList, parkingArray) {
+    createParkingList(date, bookingList, parkingArray);
+    createBookingForm(date, bookingList, parkingArray);
+    createBookingList(bookingList);
+}

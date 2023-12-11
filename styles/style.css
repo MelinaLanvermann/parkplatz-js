@@ -95,4 +95,33 @@ button {
     }
 }
 
+.booking-body{
+    display: flex;
+    flex-flow: row wrap;
+    flex: auto;
 
+    justify-content: space-evenly;
+}
+.booking-list{
+    display: flex;
+    flex-flow: column wrap;
+
+    & a{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        border-style: solid;
+        border-width: thin;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 2px;
+
+        border-color: #002c50ff;
+        background-color: #cce2f4ff;
+    }
+    & span {
+        margin: 2px;
+    }
+}
