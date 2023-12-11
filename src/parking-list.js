@@ -1,13 +1,12 @@
-import {parkingMocks} from "./mock-data.js";
 import {getStatus} from "./parking-status.js";
 
-export function createParkingList(date, bookingList) {
+export function createParkingList(date, bookingList, parkingArray) {
     const bodyDiv = document.querySelector(".bodyDiv")
     const currentDiv = document.getElementById("parking");
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "parking-list")
 
-    for (const spot of parkingMocks) {
+    for (const spot of parkingArray) {
         const newA = document.createElement("a");
         const newIdDiv = document.createElement("span");
         const newStatusDiv = document.createElement("span");

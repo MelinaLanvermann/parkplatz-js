@@ -1,13 +1,17 @@
 import {Parkingspot} from "./parkingspot.js";
 import {Booking} from "./booking.js";
 
-export const parkingMocks = [
+const parkingMocks = [
     new Parkingspot(1, "wide", "close"),
     new Parkingspot(2, "wide", "close"),
     new Parkingspot(3, "regular", "far"),
     new Parkingspot(4, "regular", "far"),
     new Parkingspot(5, "wide", "far")
-];// remove status
+];
+
+export function getParking(){
+    return parkingMocks.slice();
+}
 
 const bookingMocks = [
     new Booking(1, "2023-12-09", 2),
