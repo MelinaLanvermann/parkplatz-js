@@ -9,7 +9,7 @@ const parkingMocks = [
     new ParkingSpot(5, "wide", "far")
 ];
 
-export function getParking(){
+export function getParking() {
     return parkingMocks.slice();
 }
 
@@ -18,6 +18,6 @@ const bookingMocks = [
     new Booking(2, "2023-12-15", 1)
 ];
 
-export function getBooking(){
+export function getBooking() {
     return bookingMocks.slice();
 }

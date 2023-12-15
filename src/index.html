@@ -1,39 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Parkplatzbucher</title>
-
     <meta charset="UTF-8">
-    <link href="../styles/style.css" rel="stylesheet">
+    <link href="../styles/newStyle.css" rel="stylesheet">
+    <title>Parkplatzbucher</title>
 </head>
 <body>
-<form target="_self" action="" method="post" name="sort-form" id="sort-form">
-    <span>Sort by : </span>
-    <label for="by-id"><input id="by-id" name="sorting" type="radio">by Id</label>
-    <label for="by-status"><input id="by-status" name="sorting" type="radio">by Status</label>
-    <label for="by-type"><input id="by-type" name="sorting" type="radio">by Type</label>
-    <button type="submit" id="form-button">Sort</button>
-</form>
-<hr>
-<div class="body-div">
-    <div class="booking-form">
-        <form id="booking-form" action="" target="_self" method="post">
-            <label for="booking-date">Wunschdatum : </label>
-            <input id="booking-date" type="date">
-            <button id="check-date">Datum prüfen</button>
-            <label for="booking-select">Wunschparkplatz : </label>
-            <select id ="booking-select" class="current-select"></select>
-            <button type="submit" id="bookingSubmit">Jetzt buchen</button>
-        </form>
-    </div>
-    <div id="parking">Bitte ein Datum auswählen!
-    </div>
-</div>
-<hr>
-<h4>Aktuelle Buchungen : </h4>
-<div class="booking-body">
-    <div class="booking-list"></div>
-</div>
-<script src="./app.js" type="module"></script>
+<div id="head-bar"></div>
+<main>
+    if you see this, JavaScript isn't working
+
+    <div id="parking-list"></div>
+</main>
+<script src="app.js" type="module"></script>
 </body>
 </html>

@@ -1,0 +1,115 @@
+input, select {
+    min-height: 50px;
+    max-height: 100px;
+    min-width: 150px;
+    max-width: 250px;
+
+    margin: 2px;
+
+    border-radius: 5px;
+    border-color: #002c50ff;
+    background-color: #cce2f4ff;
+    border-style: solid;
+    border-width: thin;
+
+    font-size: large;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    flex: auto;
+    justify-content: space-evenly;
+    align-items: baseline;
+
+    font-family: "Open Sans", serif;
+    font-size: larger;
+
+    border-style: groove;
+    border-radius: 50px;
+}
+
+#bookings-list, #choose-date, #booking-form, #parking {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    & h4 {
+        font-weight: lighter;
+        font-size: xxx-large;
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+
+    & a {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+        border-style: solid;
+        border-width: thin;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 2px;
+
+        border-color: #002c50ff;
+        background-color: #cce2f4ff;
+
+        & input {
+            min-height: 15px;
+            max-height: 15px;
+            min-width: 15px;
+            max-width: 15px;
+        }
+
+    }
+
+
+    & button {
+        font: inherit;
+        min-height: 35px;
+
+        margin: 5%;
+
+        border-radius: 5px;
+        border-style: solid;
+        border-width: thin;
+    }
+}
+
+.parking-list {
+    all: revert;
+
+    & a {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        border-style: solid;
+        border-width: thin;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 2px;
+
+    }
+
+    & span {
+        flex-basis: 25%;
+    }
+
+    .wide {
+        font-weight: bold;
+    }
+
+    .free {
+        background-color: #97cf66ff;
+        border-color: #214600ff;
+    }
+
+    .booked {
+        background-color: #f4aa66ff;
+        border-color: #5e2d00ff;
+    }
+}

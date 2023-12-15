@@ -3,22 +3,22 @@ html {
     font-size: larger;
 }
 
-input, select {
-    min-height: 50px;
-    max-height: 100px;
-    min-width: 150px;
-    max-width: 250px;
+/*input, select {*/
+/*    min-height: 50px;*/
+/*    max-height: 100px;*/
+/*    min-width: 150px;*/
+/*    max-width: 250px;*/
 
-    margin: 2px;
+/*    margin: 2px;*/
 
-    border-radius: 5px;
-    border-color: #002c50ff;
-    background-color: #cce2f4ff;
-    border-style: solid;
-    border-width: thin;
+/*    border-radius: 5px;*/
+/*    border-color: #002c50ff;*/
+/*    background-color: #cce2f4ff;*/
+/*    border-style: solid;*/
+/*    border-width: thin;*/
 
-    font-size: large;
-}
+/*    font-size: large;*/
+/*}*/
 
 button {
     min-height: 35px;
@@ -49,79 +49,97 @@ button {
     justify-content: space-around;
 }
 
-.parking-list {
-    display: flex;
-    flex-flow: column wrap;
-    flex-basis: auto;
-    align-content: center;
+/*.parking-list {*/
+/*    display: flex;*/
+/*    flex-flow: column wrap;*/
+/*    flex-basis: auto;*/
+/*    align-content: center;*/
 
-    padding: 5px;
+/*    padding: 5px;*/
 
-    & a {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
+    /*& a {*/
+    /*    display: flex;*/
+    /*    flex-flow: row wrap;*/
+    /*    justify-content: space-between;*/
+    /*    align-items: center;*/
 
-        border-style: solid;
-        border-width: thin;
-        border-radius: 5px;
-        padding: 5px;
-        margin-bottom: 2px;
+    /*    border-style: solid;*/
+    /*    border-width: thin;*/
+    /*    border-radius: 5px;*/
+    /*    padding: 5px;*/
+    /*    margin-bottom: 2px;*/
 
-    }
+    /*}*/
 
-    & span {
-        flex-basis: 25%
-    }
+/*    & span {*/
+/*        flex-basis: 25%*/
+/*    }*/
 
-    .wide {
-        font-weight: bold;
-    }
+    /*.wide {*/
+    /*    font-weight: bold;*/
+    /*}*/
 
-    .free {
-        background-color: #97cf66ff;
-        border-color: #214600ff;
-    }
+    /*.free {*/
+    /*    background-color: #97cf66ff;*/
+    /*    border-color: #214600ff;*/
+    /*}*/
 
-    .booked {
-        background-color: #f4aa66ff;
-        border-color: #5e2d00ff;
-    }
+    /*.booked {*/
+    /*    background-color: #f4aa66ff;*/
+    /*    border-color: #5e2d00ff;*/
+    /*}*/
 
-    .unknown {
-        background-color: #e36666ff;
-        border-color: #270000ff;
-    }
-}
+/*    .unknown {*/
+/*        background-color: #e36666ff;*/
+/*        border-color: #270000ff;*/
+/*    }*/
+/*}*/
 
-.booking-body{
-    display: flex;
-    flex-flow: row wrap;
-    flex: auto;
+/*.booking-body {*/
+/*    display: flex;*/
+/*    flex-flow: row wrap;*/
+/*    flex: auto;*/
 
-    justify-content: space-evenly;
-}
-.booking-list{
-    display: flex;
-    flex-flow: column wrap;
+/*    justify-content: space-around;*/
+/*    align-items: baseline;*/
 
-    & a{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
+/*    & button{*/
+/*        max-height: 35px;*/
 
-        border-style: solid;
-        border-width: thin;
-        border-radius: 5px;
-        padding: 5px;
-        margin-bottom: 2px;
+/*        border-radius: 5px;*/
+/*        border-style: solid;*/
+/*        border-width: thin;*/
+/*    }*/
+/*}*/
 
-        border-color: #002c50ff;
-        background-color: #cce2f4ff;
-    }
-    & span {
-        margin: 2px;
-    }
-}
+/*#booking-list {*/
+/*    display: flex;*/
+/*    flex-flow: column wrap;*/
+
+/*    & a {*/
+/*        display: flex;*/
+/*        flex-flow: row wrap;*/
+/*        justify-content: space-between;*/
+/*        align-items: center;*/
+
+/*        border-style: solid;*/
+/*        border-width: thin;*/
+/*        border-radius: 5px;*/
+/*        padding: 5px;*/
+/*        margin-bottom: 2px;*/
+
+/*        border-color: #002c50ff;*/
+/*        background-color: #cce2f4ff;*/
+/*    }*/
+
+/*    & span {*/
+/*        margin: 2px;*/
+/*    }*/
+
+/*    & input {*/
+/*        min-height: 15px;*/
+/*        max-height: 15px;*/
+/*        min-width: 15px;*/
+/*        max-width: 15px;*/
+/*    }*/
+/*}*/

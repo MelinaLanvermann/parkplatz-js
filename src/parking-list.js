@@ -1,8 +1,8 @@
 import {getStatus} from "./parking-status.js";
 
 export function createParkingList(date, bookingList, parkingArray) {
-    const bodyDiv = document.querySelector(".body-div")
-    const currentDiv = document.getElementById("parking");
+    const bodyDiv = document.getElementById("booking-page-main");
+    // const currentDiv = document.getElementById("parking");
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "parking-list")
 
@@ -15,6 +15,7 @@ export function createParkingList(date, bookingList, parkingArray) {
 
         const newIdText = document.createTextNode(`Parkplatz Nr. ${spot.id}`);
         newIdSpan.appendChild(newIdText);
+        newIdSpan.setAttribute("class", "parking-span");
         newA.appendChild(newIdSpan);
 
         const parkId = spot.id;
@@ -56,6 +57,7 @@ export function createParkingList(date, bookingList, parkingArray) {
         newA.setAttribute("id", `${spot.id}`);
         newDiv.appendChild(newA);
     }
-    bodyDiv.replaceChild(newDiv, currentDiv);
+    // bodyDiv.replaceChild(newDiv, currentDiv);
     newDiv.setAttribute("id", "parking");
+    bodyDiv.appendChild(newDiv);
 }
