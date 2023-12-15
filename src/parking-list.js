@@ -1,58 +1,61 @@
-import {parkingMocks} from "./mock_data.js";
-// import {Booking} from "./booking.js";
+import {getStatus} from "./parking-status.js";
 
-// document.body.onload = createParkingList;
-const currentDiv = document.getElementById("parking");
-const newDiv = document.createElement("div");
-newDiv.setAttribute("class", "parking-list")
+export function createParkingList(date, bookingList, parkingArray) {
+    const bodyDiv = document.querySelector(".body-div")
+    const currentDiv = document.getElementById("parking");
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "parking-list")
 
-export function createParkingList() {
-
-    for (const spot of parkingMocks) {
+    for (const spot of parkingArray) {
         const newA = document.createElement("a");
-        const newIdDiv = document.createElement("span");
-        const newStatusDiv = document.createElement("span");
-        const newTypeDiv = document.createElement("span");
-        const newLocDiv = document.createElement("span");
+        const newIdSpan = document.createElement("span");
+        const newStatusSpan = document.createElement("span");
+        const newTypeSpan = document.createElement("span");
+        const newLocSpan = document.createElement("span");
 
         const newIdText = document.createTextNode(`Parkplatz Nr. ${spot.id}`);
-        newIdDiv.appendChild(newIdText);
-        newA.appendChild(newIdDiv);
+        newIdSpan.appendChild(newIdText);
+        newA.appendChild(newIdSpan);
 
-        if (spot.status === "free") {
+        const parkId = spot.id;
+        const spotStatus = getStatus(date, parkId, bookingList);
+
+        if (spotStatus === "free") {
             const newStatusText = document.createTextNode(`Status : frei`);
-            newStatusDiv.appendChild(newStatusText);
+            newStatusSpan.appendChild(newStatusText);
             newA.setAttribute("class", "free");
-        } else if (spot.status === "booked") {
+        } else if (spotStatus === "booked") {
             const newStatusText = document.createTextNode(`Status : gebucht`);
-            newStatusDiv.appendChild(newStatusText);
+            newStatusSpan.appendChild(newStatusText);
             newA.setAttribute("class", "booked");
         } else {
             const newStatusText = document.createTextNode(`Status : nicht abrufbar`);
-            newStatusDiv.appendChild(newStatusText);
+            newStatusSpan.appendChild(newStatusText);
             newA.setAttribute("class", "unknown")
         }
-        newA.appendChild(newStatusDiv);
+        newA.appendChild(newStatusSpan);
 
         if (spot.type === "wide") {
             const newTypeText = document.createTextNode(`Dies ist ein breiterer Parkplatz`);
-            newTypeDiv.appendChild(newTypeText);
+            newTypeSpan.appendChild(newTypeText);
+            newTypeSpan.setAttribute("class", "wide")
         } else {
             const newTypeText = document.createTextNode(`Dies ist ein normaler Parkplatz`);
-            newTypeDiv.appendChild(newTypeText);
+            newTypeSpan.appendChild(newTypeText);
         }
-        newA.appendChild(newTypeDiv);
+        newA.appendChild(newTypeSpan);
 
         if (spot.distance === "close") {
             const newLocText = document.createTextNode(`Nah an Ein-/ Ausgang : ja `);
-            newLocDiv.appendChild(newLocText);
+            newLocSpan.appendChild(newLocText);
         } else {
             const newLocText = document.createTextNode(`Nah an Ein-/ Ausgang : nein `);
-            newLocDiv.appendChild(newLocText);
+            newLocSpan.appendChild(newLocText);
         }
-        newA.appendChild(newLocDiv);
+        newA.appendChild(newLocSpan);
         newA.setAttribute("id", `${spot.id}`);
         newDiv.appendChild(newA);
     }
-    document.body.replaceChild(newDiv, currentDiv);
+    bodyDiv.replaceChild(newDiv, currentDiv);
+    newDiv.setAttribute("id", "parking");
 }

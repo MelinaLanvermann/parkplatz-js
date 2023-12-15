@@ -3,41 +3,125 @@ html {
     font-size: larger;
 }
 
+input, select {
+    min-height: 50px;
+    max-height: 100px;
+    min-width: 150px;
+    max-width: 250px;
+
+    margin: 2px;
+
+    border-radius: 5px;
+    border-color: #002c50ff;
+    background-color: #cce2f4ff;
+    border-style: solid;
+    border-width: thin;
+
+    font-size: large;
+}
+
+button {
+    min-height: 35px;
+
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+}
+
+#sort-form input {
+    min-height: 15px;
+    max-height: 15px;
+    min-width: 15px;
+    max-width: 15px;
+}
+
+.body-div {
+    display: flex;
+    flex-flow: row wrap;
+    flex: auto;
+    justify-content: space-evenly;
+}
+
+#booking-form {
+    display: flex;
+    flex-flow: column wrap;
+    flex: auto;
+    justify-content: space-around;
+}
+
 .parking-list {
     display: flex;
     flex-flow: column wrap;
     flex-basis: auto;
     align-content: center;
+
+    padding: 5px;
+
+    & a {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        border-style: solid;
+        border-width: thin;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 2px;
+
+    }
+
+    & span {
+        flex-basis: 25%
+    }
+
+    .wide {
+        font-weight: bold;
+    }
+
+    .free {
+        background-color: #97cf66ff;
+        border-color: #214600ff;
+    }
+
+    .booked {
+        background-color: #f4aa66ff;
+        border-color: #5e2d00ff;
+    }
+
+    .unknown {
+        background-color: #e36666ff;
+        border-color: #270000ff;
+    }
 }
 
-.parking-list a {
+.booking-body{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
+    flex: auto;
 
-    border-style: solid;
-    border-width: thin;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 2px;
+    justify-content: space-evenly;
 }
+.booking-list{
+    display: flex;
+    flex-flow: column wrap;
 
-.parking-list span {
-    flex-basis: 25%
-}
+    & a{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
 
-.free {
-    background-color: #97cf66ff;
-    border-color: #214600ff;
-}
+        border-style: solid;
+        border-width: thin;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 2px;
 
-.booked {
-    background-color: #f4aa66ff;
-    border-color: #5e2d00ff;
-}
-
-.unknown {
-    background-color: #e36666ff;
-    border-color: #270000ff;
+        border-color: #002c50ff;
+        background-color: #cce2f4ff;
+    }
+    & span {
+        margin: 2px;
+    }
 }
