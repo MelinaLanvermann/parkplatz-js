@@ -1,0 +1,43 @@
+html {
+    font-family: Arial, sans-serif;
+    font-size: larger;
+}
+
+.parking-list {
+    display: flex;
+    flex-flow: column wrap;
+    flex-basis: auto;
+    align-content: center;
+}
+
+.parking-list a {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 2px;
+}
+
+.parking-list span {
+    flex-basis: 25%
+}
+
+.free {
+    background-color: #97cf66ff;
+    border-color: #214600ff;
+}
+
+.booked {
+    background-color: #f4aa66ff;
+    border-color: #5e2d00ff;
+}
+
+.unknown {
+    background-color: #e36666ff;
+    border-color: #270000ff;
+}

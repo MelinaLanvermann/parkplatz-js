@@ -1,1 +1,3 @@
-import {parkingMocks} from "./mock_data.js";
+import {createParkingList} from "./parking-list.js";
+
+document.body.onload = createParkingList;
