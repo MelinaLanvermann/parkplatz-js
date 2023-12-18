@@ -1,4 +1,4 @@
-export function createBookingList(bookingList) {
+export function renderBookingList(bookingList) {
     const bookingsForm = document.getElementById("bookings-list");
     bookingsForm.setAttribute("action", "");
     bookingsForm.setAttribute("target", "_self");
@@ -47,7 +47,7 @@ export function createBookingList(bookingList) {
     bookingsForm.appendChild(editBtn);
 }
 
-export function createChooseDate() {
+export function renderChooseDate() {
     const chooseDateForm = document.getElementById("choose-date");
 
     chooseDateForm.setAttribute("action", "");

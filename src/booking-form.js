@@ -1,6 +1,7 @@
 import {getStatus} from "./parking-status.js";
+import {generateBookingDOM} from "./app.js";
 
-export function createBookingForm(date, bookingList, parkingArray) {
+export function renderBookingForm(date, bookingList, parkingArray) {
 
     const bookingForm = document.getElementById("booking-form");
     bookingForm.setAttribute("action", "");
@@ -27,6 +28,14 @@ export function createBookingForm(date, bookingList, parkingArray) {
     updateBtn.setAttribute("id", "update-booking");
     bookingForm.appendChild(updateBtn);
 
+    updateBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const changedDate = document.getElementById("booking-date").value;
+
+        generateBookingDOM(changedDate, bookingList, parkingArray);
+    })
+
     const selectLabel = document.createElement("label");
     const selectLabelText = document.createTextNode("Parkplatz : ")
     selectLabel.appendChild(selectLabelText);
@@ -41,7 +50,7 @@ export function createBookingForm(date, bookingList, parkingArray) {
         const newItem = document.createElement("option");
         const spotStatus = (getStatus(date, spot.id, bookingList))
 
-        if (spotStatus === "free") {
+        if (spotStatus) {
             const newItemText = document.createTextNode(`Parkplatz Nr. ${spot.id}`);
             newItem.appendChild(newItemText);
             newItem.setAttribute("value", `${spot.id}`);

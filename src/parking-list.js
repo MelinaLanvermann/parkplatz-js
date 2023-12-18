@@ -1,6 +1,6 @@
 import {getStatus} from "./parking-status.js";
 
-export function createParkingList(date, bookingList, parkingArray) {
+export function renderParkingList(date, bookingList, parkingArray) {
     const bodyDiv = document.getElementById("booking-page-main");
     // const currentDiv = document.getElementById("parking");
     const newDiv = document.createElement("div");
@@ -21,18 +21,14 @@ export function createParkingList(date, bookingList, parkingArray) {
         const parkId = spot.id;
         const spotStatus = getStatus(date, parkId, bookingList);
 
-        if (spotStatus === "free") {
+        if (spotStatus) {
             const newStatusText = document.createTextNode(`Status : frei`);
             newStatusSpan.appendChild(newStatusText);
             newA.setAttribute("class", "free");
-        } else if (spotStatus === "booked") {
+        } else if (!spotStatus) {
             const newStatusText = document.createTextNode(`Status : gebucht`);
             newStatusSpan.appendChild(newStatusText);
             newA.setAttribute("class", "booked");
-        } else {
-            const newStatusText = document.createTextNode(`Status : nicht abrufbar`);
-            newStatusSpan.appendChild(newStatusText);
-            newA.setAttribute("class", "unknown")
         }
         newA.appendChild(newStatusSpan);
 
