@@ -1,5 +1,5 @@
 import {Booking} from "./booking.js";
-import {getStatus} from "./parking-status.js";
+import {isFree} from "./parking-status.js";
 
 export function addBooking(date, spot, bookingList) {
 
@@ -7,7 +7,7 @@ export function addBooking(date, spot, bookingList) {
     const newSpot = spot;
     const bookingCopy = bookingList.slice();
 
-    const spotStatus = getStatus(newDate, newSpot, bookingCopy);
+    const spotStatus = isFree(newDate, newSpot, bookingCopy);
     if (spotStatus) {
         const newBooking = new Booking(bookingList.length + 1, newDate, newSpot);
         bookingCopy.push(newBooking);

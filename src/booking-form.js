@@ -1,4 +1,4 @@
-import {getStatus} from "./parking-status.js";
+import {isFree} from "./parking-status.js";
 import {generateBookingDOM} from "./app.js";
 
 export function renderBookingForm(date, bookingList, parkingArray) {
@@ -48,7 +48,7 @@ export function renderBookingForm(date, bookingList, parkingArray) {
 
     for (const spot of parkingArray) {
         const newItem = document.createElement("option");
-        const spotStatus = (getStatus(date, spot.id, bookingList))
+        const spotStatus = (isFree(date, spot.id, bookingList))
 
         if (spotStatus) {
             const newItemText = document.createTextNode(`Parkplatz Nr. ${spot.id}`);

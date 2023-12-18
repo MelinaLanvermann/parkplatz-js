@@ -1,4 +1,4 @@
-import {getStatus} from "./parking-status.js";
+import {isFree} from "./parking-status.js";
 
 export function renderParkingList(date, bookingList, parkingArray) {
     const bodyDiv = document.getElementById("booking-page-main");
@@ -19,7 +19,7 @@ export function renderParkingList(date, bookingList, parkingArray) {
         newA.appendChild(newIdSpan);
 
         const parkId = spot.id;
-        const spotStatus = getStatus(date, parkId, bookingList);
+        const spotStatus = isFree(date, parkId, bookingList);
 
         if (spotStatus) {
             const newStatusText = document.createTextNode(`Status : frei`);
