@@ -1,19 +1,20 @@
 import {Booking} from "./booking.js";
-import {getStatus} from "./parking-status.js";
+import {isFree} from "./parking-status.js";
 
 export function addBooking(date, spot, bookingList) {
 
     const newDate = date;
-    const newSpot = +spot;
+    const newSpot = spot;
     const bookingCopy = bookingList.slice();
 
-    const spotStatus = getStatus(newDate, newSpot, bookingCopy);
-    if (spotStatus === "free") {
+    const spotStatus = isFree(newDate, newSpot, bookingCopy);
+    if (spotStatus) {
         const newBooking = new Booking(bookingList.length + 1, newDate, newSpot);
         bookingCopy.push(newBooking);
 
     } else {
-        // hier könnte ihr throw stehen!
+        throw new Error('Es ist ein Fehler aufgetreten');
+        // return bookingList;
     }
     return bookingCopy;
 

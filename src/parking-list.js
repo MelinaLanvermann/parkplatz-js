@@ -1,8 +1,8 @@
-import {getStatus} from "./parking-status.js";
+import {isFree} from "./parking-status.js";
 
-export function createParkingList(date, bookingList, parkingArray) {
-    const bodyDiv = document.querySelector(".body-div")
-    const currentDiv = document.getElementById("parking");
+export function renderParkingList(date, bookingList, parkingArray) {
+    const bodyDiv = document.getElementById("booking-page-main");
+    // const currentDiv = document.getElementById("parking");
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "parking-list")
 
@@ -15,23 +15,20 @@ export function createParkingList(date, bookingList, parkingArray) {
 
         const newIdText = document.createTextNode(`Parkplatz Nr. ${spot.id}`);
         newIdSpan.appendChild(newIdText);
+        newIdSpan.setAttribute("class", "parking-span");
         newA.appendChild(newIdSpan);
 
         const parkId = spot.id;
-        const spotStatus = getStatus(date, parkId, bookingList);
+        const spotStatus = isFree(date, parkId, bookingList);
 
-        if (spotStatus === "free") {
+        if (spotStatus) {
             const newStatusText = document.createTextNode(`Status : frei`);
             newStatusSpan.appendChild(newStatusText);
             newA.setAttribute("class", "free");
-        } else if (spotStatus === "booked") {
+        } else if (!spotStatus) {
             const newStatusText = document.createTextNode(`Status : gebucht`);
             newStatusSpan.appendChild(newStatusText);
             newA.setAttribute("class", "booked");
-        } else {
-            const newStatusText = document.createTextNode(`Status : nicht abrufbar`);
-            newStatusSpan.appendChild(newStatusText);
-            newA.setAttribute("class", "unknown")
         }
         newA.appendChild(newStatusSpan);
 
@@ -56,6 +53,7 @@ export function createParkingList(date, bookingList, parkingArray) {
         newA.setAttribute("id", `${spot.id}`);
         newDiv.appendChild(newA);
     }
-    bodyDiv.replaceChild(newDiv, currentDiv);
+    // bodyDiv.replaceChild(newDiv, currentDiv);
     newDiv.setAttribute("id", "parking");
+    bodyDiv.appendChild(newDiv);
 }
