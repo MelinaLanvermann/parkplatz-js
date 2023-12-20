@@ -1,5 +1,5 @@
 import {Booking} from "./booking.js";
-import {isFree} from "./parking-status.js";
+import {isFree} from "./parking-attributes.js";
 
 export function addBooking(date, spot, bookingList) {
 
@@ -12,10 +12,8 @@ export function addBooking(date, spot, bookingList) {
         const newBooking = new Booking(bookingList.length + 1, newDate, newSpot);
         bookingCopy.push(newBooking);
 
-    } else {
-        throw new Error('Es ist ein Fehler aufgetreten');
-        // return bookingList;
     }
+
     return bookingCopy;
 
 }

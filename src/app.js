@@ -1,12 +1,12 @@
-import {getBooking, getParking} from "./mock-data.js";
+import {getBookingMockCopy, getParkingMockCopy} from "./mock-data.js";
 import {renderBookingsList, renderChooseDate} from "./booking-list.js";
 import {renderBookingForm} from "./booking-form.js";
 import {renderParkingList} from "./parking-list.js";
 import {addBooking} from "./booking-changes.js";
 
 
-let bookingList = getBooking();
-let parkingArray = getParking();
+let bookingList = getBookingMockCopy();
+let parkingArray = getParkingMockCopy();
 
 generateStartDOM(bookingList);
 
@@ -14,20 +14,16 @@ export function generateStartDOM(bookingList) {
     document.querySelector('main').remove();
 
     const startMain = document.createElement("main");
-    // startMain.setAttribute("id", "start-page-main");
-    const chooseDateForm = document.createElement("form");
-    const bookingsListForm = document.createElement("form");
+    startMain.setAttribute("class", "main-container");
+    startMain.setAttribute("id", "start-page-main");
 
-    chooseDateForm.setAttribute("id", "choose-date");
-    bookingsListForm.setAttribute("id", "bookings-list");
-
+    const chooseDateForm = renderChooseDate();
     startMain.appendChild(chooseDateForm);
+
+    const bookingsListForm = renderBookingsList(bookingList);
     startMain.appendChild(bookingsListForm);
 
     document.body.appendChild(startMain);
-
-    renderBookingsList(bookingList);
-    renderChooseDate();
 
     chooseDateForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -42,17 +38,16 @@ export function generateBookingDOM(selectedDate, bookingList, parkingArray) {
     document.querySelector('main').remove();
 
     const bookingMain = document.createElement("main");
+    bookingMain.setAttribute("class", "main-container");
     bookingMain.setAttribute("id", "booking-page-main");
 
-    const bookingForm = document.createElement("form");
-    bookingForm.setAttribute("id", "booking-form");
-
+    const bookingForm = renderBookingForm(selectedDate, bookingList, parkingArray);
     bookingMain.appendChild(bookingForm);
 
-    document.body.appendChild(bookingMain);
+    const parkingListDiv = renderParkingList(selectedDate, bookingList, parkingArray);
+    bookingMain.appendChild(parkingListDiv);
 
-    renderBookingForm(selectedDate, bookingList, parkingArray);
-    renderParkingList(selectedDate, bookingList, parkingArray);
+    document.body.appendChild(bookingMain);
 
     bookingForm.addEventListener("submit", (e) => {
         e.preventDefault();

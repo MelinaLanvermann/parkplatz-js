@@ -1,17 +1,18 @@
 export function renderBookingsList(bookingList) {
-    const bookingsForm = document.getElementById("bookings-list");
+    const bookingsForm = document.createElement("form");
     bookingsForm.setAttribute("action", "");
     bookingsForm.setAttribute("target", "_self");
     bookingsForm.setAttribute("method", "post");
     bookingsForm.setAttribute("name", "bookings-list");
+    bookingsForm.setAttribute("id", "bookings-form");
+    bookingsForm.setAttribute("class", "bookings-form");
 
     const headline = document.createElement("h4");
-    const headlineText = document.createTextNode('Aktuelle Buchungen : ');
-    headline.appendChild(headlineText);
+    headline.textContent = 'Aktuelle Buchungen :';
     bookingsForm.appendChild(headline);
 
     const newList = document.createElement("div");
-    newList.setAttribute("class", "booking-list");
+    newList.setAttribute("class", "bookings-list");
     newList.setAttribute("id", "bookings-list");
 
     for (const item of bookingList) {
@@ -25,13 +26,11 @@ export function renderBookingsList(bookingList) {
 
         newA.appendChild(newRadio);
         const newDateSpan = document.createElement("span");
-        const newDateText = document.createTextNode(`${item.date} : `);
-        newDateSpan.appendChild(newDateText);
+        newDateSpan.textContent = item.date;
 
         newA.appendChild(newDateSpan);
         const newParkSpan = document.createElement("span");
-        const newParkText = document.createTextNode(`Parkplatz Nr. ${item.parkId}`);
-        newParkSpan.appendChild(newParkText);
+        newParkSpan.textContent = `Parkplatz Nr. ${item.parkId}`;
 
         newA.appendChild(newParkSpan);
         newList.appendChild(newA);
@@ -40,25 +39,26 @@ export function renderBookingsList(bookingList) {
     bookingsForm.appendChild(newList);
 
     const editBtn = document.createElement("button");
-    const editBtntext = document.createTextNode('Bearbeiten');
     editBtn.setAttribute("type", "submit");
     editBtn.setAttribute("id", "booking-edit-btn");
-    editBtn.appendChild(editBtntext);
+    editBtn.textContent = 'Bearbeiten';
     bookingsForm.appendChild(editBtn);
+
+    return bookingsForm;
 }
 
 export function renderChooseDate() {
-    const chooseDateForm = document.getElementById("choose-date");
-
+    const chooseDateForm = document.createElement("form");
     chooseDateForm.setAttribute("action", "");
     chooseDateForm.setAttribute("target", "_self");
     chooseDateForm.setAttribute("method", "post");
     chooseDateForm.setAttribute("name", "choose-date");
+    chooseDateForm.setAttribute("id", "choose-date");
+    chooseDateForm.setAttribute("class", "choose-date");
 
     const headlineLabel = document.createElement("label")
     const headline = document.createElement("h4");
-    const headlineText = document.createTextNode("Jetzt buchen : ");
-    headline.appendChild(headlineText);
+    headline.textContent = 'Jetzt buchen :';
     headlineLabel.appendChild(headline);
     headlineLabel.setAttribute("for", "check-date");
     chooseDateForm.appendChild(headlineLabel);
@@ -71,10 +71,11 @@ export function renderChooseDate() {
     chooseDateForm.appendChild(choosedateInput);
 
     const checkdateBtn = document.createElement("button");
-    const checkdateText = document.createTextNode("Jetzt buchen");
-    checkdateBtn.appendChild(checkdateText);
+    checkdateBtn.textContent = 'Jetzt buchen';
     checkdateBtn.setAttribute("type", "submit");
     checkdateBtn.setAttribute("id", "check-date-btn");
     chooseDateForm.appendChild(checkdateBtn);
+
+    return chooseDateForm;
 
 }

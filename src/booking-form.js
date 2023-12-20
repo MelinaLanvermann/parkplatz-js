@@ -1,17 +1,18 @@
-import {isFree} from "./parking-status.js";
+import {isFree} from "./parking-attributes.js";
 import {generateBookingDOM} from "./app.js";
 
 export function renderBookingForm(date, bookingList, parkingArray) {
 
-    const bookingForm = document.getElementById("booking-form");
+    const bookingForm = document.createElement("form");
     bookingForm.setAttribute("action", "");
     bookingForm.setAttribute("target", "_self");
     bookingForm.setAttribute("method", "post");
     bookingForm.setAttribute("name", "booking-form");
+    bookingForm.setAttribute("id", "booking-form");
+    bookingForm.setAttribute("class", "booking-form");
 
     const dateLabel = document.createElement("label");
-    const dateLabelText = document.createTextNode("Wunschdatum : ");
-    dateLabel.appendChild(dateLabelText);
+    dateLabel.textContent = 'Wunschdatum :';
     dateLabel.setAttribute("for", "booking-date");
     bookingForm.appendChild(dateLabel);
 
@@ -22,23 +23,16 @@ export function renderBookingForm(date, bookingList, parkingArray) {
     dateInput.setAttribute("required", "");
     bookingForm.appendChild(dateInput)
 
-    const updateBtn = document.createElement("button");
-    const updateBtnText = document.createTextNode("Datum prüfen");
-    updateBtn.appendChild(updateBtnText);
-    updateBtn.setAttribute("id", "update-booking");
-    bookingForm.appendChild(updateBtn);
-
-    updateBtn.addEventListener("click", (e) => {
+    dateInput.addEventListener("input", (e) => {
         e.preventDefault();
 
-        const changedDate = document.getElementById("booking-date").value;
+        const changedDate = dateInput.value;
 
         generateBookingDOM(changedDate, bookingList, parkingArray);
     })
 
     const selectLabel = document.createElement("label");
-    const selectLabelText = document.createTextNode("Parkplatz : ")
-    selectLabel.appendChild(selectLabelText);
+    selectLabel.textContent = 'Parkplatz :';
     selectLabel.setAttribute("for", "booking-select");
     bookingForm.appendChild(selectLabel);
 
@@ -51,8 +45,7 @@ export function renderBookingForm(date, bookingList, parkingArray) {
         const spotStatus = (isFree(date, spot.id, bookingList))
 
         if (spotStatus) {
-            const newItemText = document.createTextNode(`Parkplatz Nr. ${spot.id}`);
-            newItem.appendChild(newItemText);
+            newItem.textContent = `Parkplatz Nr. ${spot.id}`;
             newItem.setAttribute("value", `${spot.id}`);
             newSelect.appendChild(newItem);
         }
@@ -60,10 +53,10 @@ export function renderBookingForm(date, bookingList, parkingArray) {
     bookingForm.appendChild(newSelect);
 
     const submitBtn = document.createElement("button");
-    const submitBtnText = document.createTextNode("Jetzt Buchen");
-    submitBtn.appendChild(submitBtnText);
+    submitBtn.textContent = 'Jetzt buchen';
     submitBtn.setAttribute("type", "submit");
     submitBtn.setAttribute("id", "booking-submit");
     bookingForm.appendChild(submitBtn);
 
+    return bookingForm;
 }
