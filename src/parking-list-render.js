@@ -4,6 +4,7 @@ import {generateBookingDOM} from "./app.js";
 
 export function renderParkingList(date, bookingList, parkingArray) {
     let parkingArrayCopy = parkingArray.slice();
+
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "parking-list");
     newDiv.setAttribute("id", "parking-list");
@@ -22,36 +23,39 @@ export function renderParkingList(date, bookingList, parkingArray) {
 
     for (const spot of parkingArrayCopy) {
         const newA = document.createElement("a");
+
+        // id of parkingspot
         const newIdSpan = document.createElement("span");
-        const newStatusSpan = document.createElement("span");
-        const newTypeSpan = document.createElement("span");
-
-        const newLocSpan = document.createElement("span");
-        newLocSpan.textContent = `Parkplatz Nr. ${spot.id}`;
-        newIdSpan.setAttribute("class", "parking-span");
-
-        newA.appendChild(newIdSpan);
         const parkId = spot.id;
+        newIdSpan.textContent = `Parkplatz Nr. ${spot.id}`;
+        newIdSpan.setAttribute("class", "parking-span");
+        newA.appendChild(newIdSpan);
 
+        // status of parkingspot
+        const newStatusSpan = document.createElement("span");
         const spotStatus = isFree(date, parkId, bookingList);
         if (spotStatus) {
+
             newStatusSpan.textContent = 'Status : frei';
-            newA.setAttribute("class", "free");
         } else if (!spotStatus) {
             newStatusSpan.textContent = 'Status : gebucht';
-            newA.setAttribute("class", "booked");
         }
+        newA.classList.add(classMapping(spotStatus, 'status'));
         newA.appendChild(newStatusSpan);
 
+        //type of parkingspot
+        const newTypeSpan = document.createElement("span");
         const spotType = isWide(parkId, parkingArray);
         if (spotType) {
             newTypeSpan.textContent = 'Dies ist ein breiterer Parkplatz';
-            newTypeSpan.setAttribute("class", "wide")
         } else {
             newTypeSpan.textContent = 'Dies ist ein normaler Parkplatz';
         }
+        newTypeSpan.classList.add(classMapping(spotType, 'type'));
         newA.appendChild(newTypeSpan);
 
+        // location of parkingspot
+        const newLocSpan = document.createElement("span");
         const spotDistance = isClose(parkId, parkingArray);
         if (spotDistance) {
             newLocSpan.textContent = 'Nah an Ein-/ Ausgang : Ja';
@@ -103,4 +107,24 @@ function renderSortingForm() {
     sortingForm.appendChild(newBtn);
 
     return sortingForm;
+}
+
+function classMapping(boolean, type) {
+    if (type === 'status') {
+        switch (boolean) {
+            default:
+            case true :
+                return 'free';
+            case false :
+                return 'booked';
+        }
+    } else if (type === 'type') {
+        switch (boolean) {
+            default :
+            case true :
+                return 'wide';
+            case false :
+                return 'normal';
+        }
+    }
 }

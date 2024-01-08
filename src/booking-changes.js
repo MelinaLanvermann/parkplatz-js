@@ -11,7 +11,7 @@ export function addBooking(date, spot, bookingList) {
     if (spotStatus) {
         const newBooking = new Booking(bookingList.length + 1, newDate, newSpot);
         bookingCopy.push(newBooking);
-
+        //TODO bookingList.length + 1 replace with global counter
     }
 
     return bookingCopy;

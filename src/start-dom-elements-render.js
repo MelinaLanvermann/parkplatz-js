@@ -1,4 +1,4 @@
-export function renderBookingsList(bookingList) {
+export function renderBookedList(bookingList) {
     const bookingsForm = document.createElement("form");
     bookingsForm.setAttribute("action", "");
     bookingsForm.setAttribute("target", "_self");
