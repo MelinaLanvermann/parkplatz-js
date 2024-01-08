@@ -7,6 +7,7 @@ import {addBooking} from "./booking-changes.js";
 
 let bookingList = getBookingMockCopy();
 let parkingArray = getParkingMockCopy();
+let bookingsCounter = bookingList.length;
 // TODO implement instance handler?
 
 generateStartDOM(bookingList);
@@ -30,7 +31,7 @@ export function generateStartDOM(bookingList) {
         e.preventDefault();
         const selectedDate = document.getElementById("check-date").value;
 
-         if(isDateInFuture(selectedDate)){
+         if(isDateValid(selectedDate)){
              generateBookingDOM(selectedDate, bookingList, parkingArray);
          }else{
              alert("Ungültiges Datum. Bitte ein Datum in der Zukunft auswählen.\n(Bitte bedenken Sie dass für heute keine Buchungen mehr getätigt werden können)")
@@ -61,8 +62,9 @@ export function generateBookingDOM(selectedDate, bookingList, parkingArray) {
         const date = document.getElementById("booking-date").value;
         const spot = Number(document.getElementById("booking-select").value);
 
-        if(isDateInFuture(date)){
-            bookingList = addBooking(date, spot, bookingList);
+        if(isDateValid(date)){
+            bookingList = addBooking(date, spot, bookingList, bookingsCounter);
+            bookingsCounter++;
             generateStartDOM(bookingList);
         }else {
             alert("Ungültiges Datum. Bitte ein Datum in der Zukunft wählen.\n(Bitte bedenken Sie dass für heute keine Buchungen mehr getätigt werden können)");
@@ -71,7 +73,7 @@ export function generateBookingDOM(selectedDate, bookingList, parkingArray) {
 
 }
 
-export function isDateInFuture(dateStr) {
+export function isDateValid(dateStr) {
     if(!isNaN(new Date(dateStr))){
         const currentDate = new Date();
         const selectedDate = new Date(dateStr);

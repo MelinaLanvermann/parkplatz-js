@@ -1,3 +1,5 @@
+import {isDateValid} from "./app.js";
+
 export function renderBookedList(bookingList) {
     const bookingsForm = document.createElement("form");
     bookingsForm.setAttribute("action", "");
@@ -16,6 +18,7 @@ export function renderBookedList(bookingList) {
     newList.setAttribute("id", "bookings-list");
 
     for (const item of bookingList) {
+
         const newA = document.createElement("a");
 
         newA.setAttribute("id", `${item.id}`);
@@ -33,7 +36,9 @@ export function renderBookedList(bookingList) {
         newParkSpan.textContent = `Parkplatz Nr. ${item.parkId}`;
 
         newA.appendChild(newParkSpan);
-        newList.appendChild(newA);
+        if (isDateValid(item.date)){
+            newList.appendChild(newA);
+        }
     }
 
     bookingsForm.appendChild(newList);
